@@ -1,0 +1,3 @@
+[submodule "EvolutionSimulator"]
+	path = EvolutionSimulator
+	url = git://github.com/danmane/EvolutionSimulator.git
