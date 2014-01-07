@@ -16,6 +16,10 @@ function addListener(type) {
     div.on(type, textAppender(div, type));
 }
 
+var width = window.innerWidth - 30;
+var height = window.innerHeight - 30;
+div.style("width", width + "px").style("height", height + "px");
+
 var eventTypes =
 ['abort',
 'afterprint',

@@ -1,5 +1,7 @@
 #originaldiv {
-    height: 1000px;
-    width: 1000px;
     border: 1px solid black;
+}
+#version {
+    background-color: lavender;
+    font-weight: bold;
 }
