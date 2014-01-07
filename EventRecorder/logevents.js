@@ -1,15 +1,15 @@
 var div = d3.select("#originaldiv");
 
-function textAppender(selection, text) {
+function textAppender(selection, text, ee) {
     var textbox = null;
     var counter = 0;
-    return function (event) {
-        event.preventDefault();
+    return function (e) {
         counter++;
         if (textbox == null) {
             textbox = selection.append("div");
         }
         textbox.text(text + ":" + counter);
+        d3.event.preventDefault();
     }
 }
 
