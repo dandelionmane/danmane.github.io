@@ -1,4 +1,4 @@
-var div = d3.select("div");
+var div = d3.select("#originaldiv");
 
 function textAppender(selection, text) {
     var textbox = null;
