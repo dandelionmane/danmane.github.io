@@ -3,7 +3,8 @@ var div = d3.select("#originaldiv");
 function textAppender(selection, text) {
     var textbox = null;
     var counter = 0;
-    return function () {
+    return function (event) {
+        event.preventDefault();
         counter++;
         if (textbox == null) {
             textbox = selection.append("div");
