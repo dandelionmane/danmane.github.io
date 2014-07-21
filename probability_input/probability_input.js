@@ -40,13 +40,14 @@ function generateInputChart(selection, distributionGen) {
                                   .project("fill-opacity", 1);
   var center = gridRenderer.merge(distributionBarPlot).merge(distributionAreaPlot);
   var clickToSubmitInteraction  = new Plottable.Interaction.Click(center).callback(setParams).registerWithComponent();
-
-  var innerTable = new Plottable.Component.Table([[yAxis, center], [null, xAxis]]);
-
   var nameLabel = new Plottable.Component.TitleLabel().text("Barack Obama");
   var traitLabel = new Plottable.Component.AxisLabel().text("Intelligence");
-  var outerTable = new Plottable.Component.Table([[nameLabel], [traitLabel], [innerTable]]);
-  outerTable.renderTo(selection);
+
+  var table = new Plottable.Component.Table([[null,  nameLabel ],
+                                             [null,  traitLabel],
+                                             [yAxis, center    ],
+                                             [null,  xAxis    ]]);
+  table.renderTo(selection);
   center.element.on("mousemove", function() {
     var xy = d3.mouse(center.element.node());
     setParams(xy[0], xy[1], true)

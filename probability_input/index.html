@@ -9,15 +9,29 @@
     opacity: 1;
   }
 
-  div {
-    display: inline;
+  svg {
+    height: 600px;
+  }
+
+  .svg-container {
+    width: 40%;
+    display: inline-block;
+    margin: 40px;
+  }
+
+  .outer {
+    width: 100%;
+  }
+
+  #container2{
+    float: right;
   }
 </style>
 </head>
 <body>
-<div>
-<svg width="40%" height="600px" id="svg1"></svg>
-<svg width="40%" height="600px" id="svg2"></svg>
+<div class="outer">
+<div class="svg-container"><svg height="600px" id="svg1"></svg></div>
+<div class="svg-container" id="container2"><svg height="600px" id="svg2"></svg></div>
 </div>
 <script src="bower_components/d3/d3.js" charset="utf-8"></script>
 <script src="bower_components/plottable/plottable.js"></script>
