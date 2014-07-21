@@ -14,9 +14,15 @@
   }
 
   .svg-container {
-    width: 40%;
+    width: 45%;
     display: inline-block;
-    margin: 40px;
+  }
+
+  #container1 {
+    margin-left: 4%;
+  }
+  #container2 {
+    margin-right: 4%;
   }
 
   .outer {
@@ -30,7 +36,7 @@
 </head>
 <body>
 <div class="outer">
-<div class="svg-container"><svg height="600px" id="svg1"></svg></div>
+<div class="svg-container" id="container1"><svg height="600px" id="svg1"></svg></div>
 <div class="svg-container" id="container2"><svg height="600px" id="svg2"></svg></div>
 </div>
 <script src="bower_components/d3/d3.js" charset="utf-8"></script>
@@ -40,7 +46,8 @@
 <script src="probability_input.js"></script>
 <script>
 window.onload = function() {
-  viz().generateInputChart("#svg1", normalizedParabolic);
+  var v = viz();
+  v.generateInputChart("#svg1", normalizedParabolic);
 
   function adjustedNormal(rating, confidence) {
     var sigma = 1 / confidence / Math.sqrt(2* Math.PI);
@@ -48,7 +55,7 @@ window.onload = function() {
     return normalDistribution(rating, sigma);
   }
 
-  viz().generateInputChart("#svg2", adjustedNormal);
+  v.generateInputChart("#svg2", adjustedNormal);
 }
 </script>
 </body>

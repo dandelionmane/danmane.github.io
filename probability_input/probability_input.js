@@ -8,11 +8,13 @@ var Y_DOMAIN = [0, 5];
 var CUTOFF = 0.4;
 var SCALING_FACTOR = 0.4;
 
+var rating = 0;
+var confidence = 1;
+var updaters = []; // connect the 2 charts in the hackiest possible way :P
+
 function generateInputChart(selection, distributionGen) {
   var confidenceDomain = ["totally unsure", "vague idea", "good guess", "pretty sure", "goddamn confident"];
   var ratingDescriptionDomain = ["sucks", "meh", "average", "good", "awesome"];
-  var rating = 0;
-  var confidence = 1;
   var distributionXScale = new Plottable.Scale.Linear().domain(X_DOMAIN);
   var distributionYScale = new Plottable.Scale.Linear().domain(Y_DOMAIN);
 
@@ -52,17 +54,16 @@ function generateInputChart(selection, distributionGen) {
     var xy = d3.mouse(center.element.node());
     setParams(xy[0], xy[1], true)
   });
-  function setParams(px, py, doNotSubmit) {
+  function setParams(px, py) {
     var x = distributionXScale.invert(px);
     var y = distributionYScale.invert(py);
     rating = x;
     confidence = y;
     if (rating >  1) rating =  1;
     if (rating < -1) rating = -1;
-    update(doNotSubmit);
+    updaters.forEach(function(u) {u()});
   }
-  var hasInteracted = false
-  function update(doNotSubmit) {
+  function update() {
     var distribution = distributionGen(rating, confidence, CUTOFF, SCALING_FACTOR);
     var areadata = sample(distribution, -1.05, 1.05, 400);
     var w = 4/25 * Math.pow(1.7, 5-confidence);
@@ -71,7 +72,9 @@ function generateInputChart(selection, distributionGen) {
     distributionAreaPlot.dataSource().data(areadata);
 
   }
-  update(true);
+  update();
+  updaters.push(update);
+
 
 
   function generateBackgroundGridData() {
