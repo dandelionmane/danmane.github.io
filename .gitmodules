@@ -1,9 +1,0 @@
-[submodule "EvolutionSimulator"]
-	path = EvolutionSimulator
-	url = https://github.com/danmane/EvolutionSimulator.git
-[submodule "D3Experiments"]
-	path = D3Experiments
-	url = https://github.com/danmane/D3Experiments.git
-[submodule "LinkedChartPrototype"]
-	path = LinkedChartPrototype
-	url = https://github.com/danmane/LinkedChartPrototype.git
