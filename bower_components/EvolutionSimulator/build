@@ -1,0 +1,34 @@
+#!/usr/local/bin/fish
+set BACKEND_FILES src/util.coffee src/vector.coffee src/quadtree.coffee
+set SIMULATION_FILES $BACKEND_FILES src/gene.coffee src/blob.coffee src/simulation.coffee
+set FRONTEND_FILES src/renderer.coffee src/frontend.coffee
+
+if test (count $argv) -eq 0
+	set arg web
+else
+	set arg $argv[1]
+end
+switch $arg
+	case web
+		cat $SIMULATION_FILES > dist/simulation.coffee
+		cat $FRONTEND_FILES   > dist/frontend.coffee
+		coffee -c dist/simulation.coffee
+		coffee -c dist/frontend.coffee
+		rm dist/*.coffee
+		echo rebuilt the web files
+
+	case quadtree_test
+		cat $BACKEND_FILES test/quadtree.test > combined.coffee
+		coffee combined.coffee
+
+	case debug
+		cat $MAIN_FILES test/debugSimulation.coffee > combined.coffee
+		coffee combined.coffee
+
+	case clear
+		rm dist/*.coffee
+		rm dist/*.js
+
+	case '*'
+	    echo Unrecognized command
+end

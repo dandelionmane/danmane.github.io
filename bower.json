@@ -1,0 +1,23 @@
+{
+  "name": "danmane.github.io",
+  "homepage": "https://github.com/danmane/danmane.github.io",
+  "authors": [
+    "Daniel Mané <danmane@gmail.com>"
+  ],
+  "description": "My personal website",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "none",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "EvolutionSimulator": "evolution-simulator#~0.5.1",
+    "polymer": "~1.2.0"
+  }
+}

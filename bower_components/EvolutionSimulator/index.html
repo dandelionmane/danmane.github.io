@@ -1,0 +1,58 @@
+
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+</head>
+
+<body>
+  <body bgcolor="#111111">
+  <div id="container">
+    <header>
+    </header>
+
+    <div id="main">
+      <style>
+      #gui-container {
+        position: fixed;
+        right: 0px;
+      }
+      </style>
+      <div id="gui-container"></div>
+      <canvas id="processing"></canvas>
+    </div>
+
+    <footer>
+    </footer>
+  </div> <!-- end of #container -->
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/Processing.js/processing.min.js"></script>
+  <script src="bower_components/dat.gui/dat.gui.min.js"></script>
+  <script src="dist/frontend.js"></script>
+  <script>
+  window.simulationWorker = "dist/simulation.js"
+  $(document).ready(function() {
+    var gui = null;
+    var nonGui = null;
+    function go() {
+      if (nonGui && gui) {
+        var canvas = $("#processing")[0];
+        activateEvolutionSimulator(canvas, gui, nonGui);
+      }
+    }
+    $.getJSON("settings/gui_settings.json", function(json) {
+      gui = json;
+      go();
+    });
+    $.getJSON("settings/non_gui_settings.json", function(json) {
+      nonGui = json;
+      go();
+    });
+  });
+  </script>
+</body>
+</html>
