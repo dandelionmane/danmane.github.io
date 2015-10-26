@@ -5,18 +5,54 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="danmane.github.io : My Github pages" />
-
+    <link rel="import" href="/components/import.html">
     <link rel="stylesheet" type="text/css" media="screen" href="lib/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
-    <title>Dan Blog</title>
+
+    <title>Dan Mané's Site</title>
+
+
   </head>
 
   <body>
 
-    <div id="toolbar">
-      <span><a href="/index.html">Dan's Blog</a></span>
-      <span><a href="/about.html">About</a></span>
-    </div>
+    <style>
+    #main-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .card {
+      width: 300px;
+      height: 300px;
+      margin: 10px;
+      font-size: 40px;
+      background-color: black;
+      border-radius: 5px;
+    }
+
+    .subsection h2 {
+      padding-left: 20px;
+      font-size: 40px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .card-container a {
+      text-decoration: none;
+    }
+    .card-container a:visited {
+      color: white;
+    }
+
+    .card div {
+      padding: 20px;
+    }
+    </style>
+
+    <dm-toolbar></dm-toolbar>
     <div id="main-container">
       <div id="content">
         <div id="projects" class="subsection">
@@ -38,6 +74,12 @@
           <h2>Writings</h2>
           <div class="card-container">
           </div>
+        </div>
+        <div id="arts" class="subsection">
+          <h2>Arts</h2>
+          <div class="card-container">
+          </div>
+        </div>
       </div>
     </div>
 
