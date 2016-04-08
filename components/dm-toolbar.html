@@ -1,0 +1,47 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="dm-toolbar">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+      #toolbar {
+        width: 100%;
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+
+      #toolbar span a {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+
+      #toolbar span {
+        padding: 5px;
+      }
+
+    </style>
+    <div id="toolbar">
+      <span><a href="/index.html">Dan's Blog</a></span>
+      <span><a href="/about.html">About</a></span>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "dm-toolbar",
+    });
+  </script>
+</dom-module>

@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/style.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/components/dm-toolbar.html">
     <title>Dan Blog</title>
   </head>
 
@@ -25,14 +27,11 @@
     }
     #gui-container {
       position: absolute;
-      top: 40px;
-      right: 25px;
+      top: 0px;
+      right: 0px;
     }
     </style>
-    <div id="toolbar">
-      <span><a href="/index.html">Dan's Blog</a></span>
-      <span><a href="/about.html">About</a></span>
-    </div>
+    <dm-toolbar></dm-toolbar>
     <div id="main-container">
       <div id="gui-container"></div>
       <canvas id="processing">
