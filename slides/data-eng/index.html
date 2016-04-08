@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Deep Learning and TensorFlow</title>
+
+		<meta name="description" content="An overview of Deep Learning and TensorFlow">
+		<meta name="author" content="Daniel Mané">
+
+		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script src="bower_components/d3/d3.min.js"></script>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1 style="font-size: 3em"><span class="tf-light-orange">Deep Learning</span></h1>
+					<h3 style="margin: 0;"> with </h3>
+					<img class="noborder" src="/assets/tensorflow-flat-logo.png"></img>
+					<p>
+						<small>Created by Daniel Mané / <a href="http://github.com/danmane">danmane@</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Deep Learning</h2>
+					<h2 class="fragment">Deep Neural Networks</h2>
+				</section>
+
+				<section>
+					<h2>What Are Neural Networks?</h2>
+					<p>
+						A tour thanks to Chris Olah
+					</p>
+					<p>
+						<small>Materials at <a href="http://colah.github.io/">http://colah.github.io/</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>A "Typical Neuron"</h2>
+					<img src="assets/typical-neuron.png"></img>
+				</section>
+
+				<section data-transition="convex-in none-out">
+					<h2>A Mathematical Neuron</h2>
+					<img src="imgs/neuron-noweights.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section data-transition="fade-in convex-out">
+					<h2>A Mathematical Neuron</h2>
+					<img src="imgs/neuron.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+					<h2>Binary Threshold Neurons</h2>
+					<p><img src="imgs/nn-diagram-binary.png"></p>
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+
+				<section>
+					<h2>NAND neuron</h2>
+				  <img src="assets/nn-diagram-NAND.png">
+					<p class="fragment">Neurons are Universal</p>
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+					<h2>..but how do we train them?</h2>
+					<h1 class="fragment">with calculus!</h3>
+					<img class="fragment" src="assets/newton-badass.png" />
+				</section>
+
+				<section>
+					<h2>problem: this is not differentiable</h2>
+					<img src="assets/non-diff.png" />
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+				<section>
+					<h2>Sigmoid</h2>
+					<img src="assets/sigmoid-intro.png"/>
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+          <h2>Sigmoid Neurons</h2>
+          <p><img src="imgs/nn-diagram-sigmoid.png"></p>
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+				<section>
+					<h2>Layers</h2>
+				</section>
+
+				<section>
+					<h2>A Sigmoid Layer</h2>
+					<img src="imgs/nn-diagram-vec-1.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+					<h2>A Sigmoid Layer</h2>
+					<p><img src="imgs/nn-diagram-vec-3.png"></p>
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+					<img src="imgs/nn-diagram-vec-5.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+
+				<section>
+          <h2>Geometric Perspective</h2>
+        </section>
+
+
+        <section>
+          <h2>Neural Nets as Geometric Transformations</h2>
+          <img class="regsize" src="imgs/nn-vectorspace-point.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+
+        <section>
+          <h2>One Layer</h2>
+					<div style="display: flex; flex-direction: column; align-items: center;">
+						<img style="width: 40%;" src="assets/one_layer_math.png" />
+						<img class="fragment" style="width: 50%;" src="imgs/1layer.gif">
+					</div>
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+
+        <section>
+          <h2>A Simple Example</h2>
+        </section>
+
+        <section>
+          <h2>Problem</h2>
+          <img class="regsize" src="vis/img/simple2_data.png">
+          <p>Low-dimensional subspace</p>
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+        <section>
+          <h2>Linear Model</h2>
+          <img class="regsize" src="vis/img/simple2_linear.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+        <section>
+          <h2>Neural Net</h2>
+          <img class="regsize" src="vis/img/simple2_0.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+        <section>
+          <h2>Neural Net, Hidden Representation</h2>
+          <img class="regsize" src="vis/img/simple2_1.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+        <section>
+          <h2>Neural Net, Bending Data</h2>
+          <img class="regsize" src="imgs/NetDiagram-Simple.png">
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+
+        <section>
+          <h2>The Spiral Problem</h2>
+        </section>
+
+        <section>
+          <h2>Separating a Spiral</h2>
+          <img src="imgs/spiral.1-2.2-2-2-2-2-2.gif">
+					<small class="thankschris">Figures from Chris Olah</small>
+        </section>
+
+
+				<section>
+					<h2>Time to go to the playground!</h2>
+					<a href="/playground"><img src="playground/preview.png" /></a>
+					<small class="thankschris">(Created by Daniel Smilkov and Shan Carter)</small>
+				</section>
+
+				<section>
+					<h2>Neural Nets: There's lots going on!</h2>
+				</section>
+
+				<section>
+					<h2>Convolutional Nets</h2>
+					<img src="/assets/convnet.png" />
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+					<h2>Recurrent Nets</h2>
+					<img class="" src="/assets/rnn.png" />
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+				<section>
+					<h2>LSTMs</h2>
+					<p>
+						"Long Short Term Memory"
+					</p>
+					<img src="/assets/lstm.png" />
+					<small class="thankschris">Figures from Chris Olah</small>
+				</section>
+
+
+				<section>
+					<img class="regsize noborder" src="assets/tf-logo.png" />
+				</section>
+
+				<section>
+					<h2>Google Brain</h2>
+					<div id="brain-div">
+						<img class="noborder" id="flex-brain" src="assets/BrainLogo.png" />
+						<img class="fragment noborder" id="flex-jeff" src="assets/jeff.png" />
+					</div>
+				</section>
+
+				<section data-background="/assets/mapreduce_big.png">
+					<img class="fragment" src="assets/hadoop.png" style="background-color: white;"/>
+				</section>
+
+				<section>
+					<h2>Jeff Dean Facts</h2>
+					<br />
+					<p class="fragment">
+						The speed of light used to be 140 miles per hour. Then Jeff spent a weekend optimizing it.
+					</p>
+					<br />
+					<p class="fragment">
+						Compilers don't warn Jeff Dean. Jeff Dean warns compilers.
+					</p>
+					<br />
+					<p class="fragment">
+						Jeff Dean puts on his pants one leg at a time. But, if he had more
+						than two legs, you would see that his approach is actually O(log n).
+					</p>
+				</section>
+
+
+				<section data-background="/assets/tensorflow_big.png">
+				</section>
+
+				<section>
+					<a href="https://docs.google.com/presentation/d/1Dv3q8GX9Ht6FJ9-d6Smn37ffHqg6Q2Z1w85zDEUosWk/edit#slide=id.g11b5ed2141_0_179"><img class="regsize noborder" src="assets/tf-logo.png" /> </a>
+					<p><small>On to the other slidedeck!</small></p>
+				</section>
+
+
+				<section>
+					<img src="assets/tensors_flowing.gif" />
+					<p>
+						Seems complicated!
+					</p>
+					<p>
+						Why not just have layers and call it a day!
+					</p>
+				</section>
+
+				<section>
+					<h2>Need flexibility to do this</h2>
+					<img class="" src="/assets/lstm.png" />
+					<p>
+						And newer / cooler things, like Neural Turing Machines
+					</p>
+				</section>
+
+				<section>
+					<img class="noborder" src="assets/tensorflow-flat-logo.png" />
+					<ul>
+							<li>
+								Distributed
+							</li>
+							<li>
+								Automatic differentiation
+							</li>
+							<li>
+								Portable
+							</li>
+							<li>
+								Super flexible
+							</li>
+							<li>
+								Open-source
+							</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="assets/tensors_flowing.gif" />
+					<p>
+						But, it's complicated!
+					</p>
+					<p>
+						<a href="/imagenet-towers">And modern nets are really deep!</a>
+					</p>
+				</section>
+
+				<section>
+					<h2><a href="/tensorboard/index.html#graphs">We need visualizations!</a></h2>
+				</section>
+
+				<section>
+					<a href="/imagenet_graph/tfgraph-demo-index.html"><img style="width: 4%;" class="noborder" src="imagenet-towers/inception-v3.png" /></a>
+				</section>
+
+				<section>
+					<a href="/histograms/index.html#histograms"><img src="assets/joy_division.jpg" /></a>
+				</section>
+
+
+				<section style="text-align: left;">
+					<h2>Q&amp;A</h2>
+					<img style="width: 20%" src="assets/tensors_flowing.gif" />
+					<p>
+						- Chris Olah's Blog: <a href="http://colah.github.io/">colah.github.io</a> <br>
+						- TensorFlow website: <a href="http://tensorflow.org/">TensorFlow.org</a> <br />
+						- Me: <a href="" >danmane@(google|gmail).com</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

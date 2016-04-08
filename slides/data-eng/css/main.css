@@ -1,0 +1,97 @@
+@font-face { font-family: Interstate-Bold; src: url('../assets/Interstate Bold.ttf'); }
+@font-face { font-family: Interstate-Regular; src: url('../assets/Interstate-Regular.ttf'); }
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none !important;
+}
+
+.tf-logo {
+  font-family: Interstate-Regular;
+  text-transform: none !important;
+  background-color: white;
+}
+
+.tf-orange {
+  color: #f16529;
+}
+
+.tf-grey {
+  color: #a6a8ab;
+}
+
+.tf-yellow {
+  color: #febd36;
+}
+
+.tf-light-orange{
+  color: #f6921e;
+}
+
+.regsize {
+  width: 50%;
+  height: 50%;
+}
+.brain-flex {
+  display: flex;
+  justify-content: center;
+  /*width: 100%;
+  height: 50%;*/
+}
+
+.brain-flex div {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+.flex-child {
+}
+
+#brain-div {
+  position: relative;
+}
+
+#flex-brain {
+  display: inline-block;
+  width: 400px;
+  height: auto;
+  max-width: 40%;
+  max-height: 40%;
+  padding-right:50px;
+  /*width: 40%;
+  flex-grow: 0;
+  flex-shrink: 1;*/
+}
+
+#flex-jeff {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin: auto;
+  /*width: 20%;
+  flex-grow: 0;
+  flex-shrink: 1;*/
+
+}
+
+.nomove {
+  position: fixed;
+  left: 0;
+}
+
+.noborder {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.thankschris {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  font-size: .3em !important;
+}
